@@ -29,28 +29,28 @@ public class AccountTester {
         System.out.println("Chequing Account balance: "+mahmoudChequing.getBalance());
 
         //Withdraw 200 from the chequing account
-        mahmoudChequing.withdrawAmt(200);
+        mahmoudChequing.withdraw(200);
         System.out.printf("\nChequing account balance after withdraw 200 is : %.2f",mahmoudChequing.getBalance());
 
         //Withdraw 400 from the chequing account
-        mahmoudChequing.withdrawAmt(400);
+        mahmoudChequing.withdraw(400);
         System.out.printf("\nChequing account balance after withdraw 400 is : %.2f",mahmoudChequing.getBalance());
 
         //Withdraw 300 from the chequing account
-        mahmoudChequing.withdrawAmt(300);
+        mahmoudChequing.withdraw(300);
         System.out.printf("\nChequing account balance after withdraw 300 is : %.2f",mahmoudChequing.getBalance());
 
         //Withdraw 50 from the chequing account
-        mahmoudChequing.withdrawAmt(50);
+        mahmoudChequing.withdraw(50);
         System.out.printf("\nChequing account balance after withdraw 50 is  : %.2f",mahmoudChequing.getBalance());
 
         //Change the interest of the savings account to 5%
         mohamedSaving.adjustInterestRate(0.05);
 
-        //Chequing account transaction fee
-        System.out.println("\nChequing account transaction fee  : "+mahmoudChequing.transactionFee());
-        //Chequing account balance after fee
-        System.out.println("Chequing account balance after fee: "+(mahmoudChequing.getBalance()-mahmoudChequing.transactionFee()));
+//        //Chequing account transaction fee
+//        System.out.println("\nChequing account transaction fee  : "+mahmoudChequing.chargeFee());
+//        //Chequing account balance after fee
+//        System.out.println("Chequing account balance after fee: "+(mahmoudChequing.getBalance()-mahmoudChequing.chargeFee()));
         //Saving account balance
         System.out.println("Saving account balance\t\t\t  : "+mohamedSaving.getBalance());
 

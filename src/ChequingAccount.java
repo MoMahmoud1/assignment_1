@@ -8,7 +8,7 @@
  •	Should override the depositAmt and withdrawAmt methods in order to increment the transaction count.
  •	Contains a chargeFees method that will charge the transaction fee (if any) to the account for any
  transactions beyond the free transactions (assume that transfers or balance checks are free)
-
+//remove
  */
 
 /**
@@ -16,66 +16,77 @@
  *
  * @author mohamed
  */
-
-
 public class ChequingAccount extends BankAccount {
+
     public static final int FREE_TRANSACTIONS = 3;
-    private  int TRANSACTIONS_FEE = 2;
-    private int transaction;
+    public static final int TRANSACTIONS_FEE = 2;
+    private int numTransaction;
 
     /**
      * default constructor to set chequing account balance
      */
     public ChequingAccount() {
         super();
-        this.transaction = 0;
+        this.numTransaction = 0;
 
     }
 
     /**
-     * @param initialBalance constructor for chequing account balance
+     * comment
+     * @param balance constructor for chequing account balance
      */
-    public ChequingAccount(double initialBalance) {
-        super(initialBalance);
-        this.transaction = 0;
+    public ChequingAccount(double balance) {
+        super(balance);
+        this.numTransaction = 0;
 
     }
 
-    @Override
+
     /**
      * update transaction count
      * @param depositAmount to bank account
      */
+    @Override
     public void deposit(double depositAmount){
         super.deposit(depositAmount);
-        this.transaction++;
+        this.numTransaction++;
+        this.chargeFee();
     }
 
+
+
     /**
-     *
-     * @param withdraw from chequing account
      * update transaction count
+     * @param withdrawAmount from chequing account
      */
-    public void withdrawAmt(double withdraw){
-    super.withdrawAmt(withdraw);
-    transaction++;
+    @Override
+    public void withdraw(double withdrawAmount) {
+        super.withdraw(withdrawAmount);
+        numTransaction++;
+        this.chargeFee();
+
     }
 
     /**
-     *
-     * @return transaction fee for chequing account
+     *transfer an amount to the specified account. must be positive amount .
+     * @param bankAccount chose bank account to transfer amount.
+     * @param transferAmount the amount to be transferred.
      */
-    public double transactionFee(){
-        //int fees = 0;
-        //todo add fee after free transaction
-
-        if (transaction >FREE_TRANSACTIONS) {
-            for (int i = 4; i < transaction; i++) {
-                this.TRANSACTIONS_FEE += 2;
-            }
-        }else {TRANSACTIONS_FEE = 0;}
-
-        return  TRANSACTIONS_FEE;//setBalance(getBalance())-fees; for show balance after fess
+    @Override
+    public void transfer(BankAccount bankAccount, double transferAmount) {
+        super.transfer(bankAccount ,transferAmount);
+        numTransaction++;
+        this.chargeFee();
     }
+
+    /**
+     *track transaction and charge fees when appropriate .call this on every transaction
+     */
+    private void chargeFee(){
+
+        if (this.numTransaction> FREE_TRANSACTIONS) {
+            this.withdraw(TRANSACTIONS_FEE);
+        }
+        }
 
 }
