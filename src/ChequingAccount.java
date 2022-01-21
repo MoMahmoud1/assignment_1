@@ -23,17 +23,25 @@ public class ChequingAccount extends BankAccount {
     private  int TRANSACTIONS_FEE = 2;
     private int transaction;
 
+    /**
+     * default constructor to set chequing account balance
+     */
     public ChequingAccount() {
         super();
         this.transaction = 0;
 
     }
 
+    /**
+     * constructor for chequing account balance
+     * @param initialBalance
+     */
     public ChequingAccount(double initialBalance) {
         super(initialBalance);
         this.transaction = 0;
 
     }
+
     @Override
     /**
      * update transaction count
@@ -62,7 +70,8 @@ public class ChequingAccount extends BankAccount {
             transaction++;
         }
 
-        return setBalance(updatedBalance);
+       return setBalance(updatedBalance);
+
     }
 
     /**

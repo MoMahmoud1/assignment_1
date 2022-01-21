@@ -18,10 +18,16 @@
  */
 public class BankAccount {
     private double balance;
-
+    /**
+     * default constructor to set bank account balance
+     */
     public BankAccount() {
     }
 
+    /**
+     * constructor to set bank account balance
+     * @param balance
+     */
     public BankAccount(double balance) {
         this.balance = balance;
     }

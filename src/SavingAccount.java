@@ -13,7 +13,9 @@
  */
 public class SavingAccount extends BankAccount{
     private double interestRate = 0.03;
-
+    /**
+     * default constructor to set saving account balance
+     */
     public SavingAccount() {
         super();
     }
