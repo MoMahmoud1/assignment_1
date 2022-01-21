@@ -22,26 +22,33 @@ public class AccountTester {
 
 
         //Transfer 1000 to the chequing account
-        System.out.println("Transfer 1000 to Chequing account.");
+        System.out.println("\nTransfer 1000 to Chequing account.");
         mohamedSaving.transfer(mahmoudChequing,1000);
 
         //Chequing account balance
         System.out.println("Chequing Account balance: "+mahmoudChequing.getBalance());
 
         //Withdraw 200 from the chequing account
-        System.out.println("Chequing account balance after withdraw 200 is : "+mahmoudChequing.withdrawAmt(200));
+        mahmoudChequing.withdrawAmt(200);
+        System.out.printf("\nChequing account balance after withdraw 200 is : %.2f",mahmoudChequing.getBalance());
+
         //Withdraw 400 from the chequing account
-        System.out.println("Chequing account balance after withdraw 400 is : "+mahmoudChequing.withdrawAmt(400));
+        mahmoudChequing.withdrawAmt(400);
+        System.out.printf("\nChequing account balance after withdraw 400 is : %.2f",mahmoudChequing.getBalance());
+
         //Withdraw 300 from the chequing account
-        System.out.println("Chequing account balance after withdraw 300 is : "+mahmoudChequing.withdrawAmt(300));
+        mahmoudChequing.withdrawAmt(300);
+        System.out.printf("\nChequing account balance after withdraw 300 is : %.2f",mahmoudChequing.getBalance());
+
         //Withdraw 50 from the chequing account
-        System.out.println("Chequing account balance after withdraw 50  is : "+mahmoudChequing.withdrawAmt(50));
+        mahmoudChequing.withdrawAmt(50);
+        System.out.printf("\nChequing account balance after withdraw 50 is  : %.2f",mahmoudChequing.getBalance());
 
         //Change the interest of the savings account to 5%
         mohamedSaving.adjustInterestRate(0.05);
 
         //Chequing account transaction fee
-        System.out.println("Chequing account transaction fee  : "+mahmoudChequing.transactionFee());
+        System.out.println("\nChequing account transaction fee  : "+mahmoudChequing.transactionFee());
         //Chequing account balance after fee
         System.out.println("Chequing account balance after fee: "+(mahmoudChequing.getBalance()-mahmoudChequing.transactionFee()));
         //Saving account balance

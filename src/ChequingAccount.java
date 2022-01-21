@@ -33,8 +33,7 @@ public class ChequingAccount extends BankAccount {
     }
 
     /**
-     * constructor for chequing account balance
-     * @param initialBalance
+     * @param initialBalance constructor for chequing account balance
      */
     public ChequingAccount(double initialBalance) {
         super(initialBalance);
@@ -55,23 +54,11 @@ public class ChequingAccount extends BankAccount {
     /**
      *
      * @param withdraw from chequing account
-     * @return balance after withdraw transaction
      * update transaction count
      */
-    public double withdrawAmt(double withdraw){
-        double updatedBalance = 0 ;
-        // todo check the withdraw amount is available
-        if (withdraw > getBalance() || withdraw < 0){
-            System.out.println("invalid balance ");
-        }
-        else {
-            // todo update balance after withdraw and update fee
-            updatedBalance = getBalance() - withdraw;
-            transaction++;
-        }
-
-       return setBalance(updatedBalance);
-
+    public void withdrawAmt(double withdraw){
+    super.withdrawAmt(withdraw);
+    transaction++;
     }
 
     /**

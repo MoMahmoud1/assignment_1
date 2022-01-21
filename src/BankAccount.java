@@ -25,8 +25,8 @@ public class BankAccount {
     }
 
     /**
-     * constructor to set bank account balance
-     * @param balance
+     *
+     * @param balance constructor to set bank account balance
      */
     public BankAccount(double balance) {
         this.balance = balance;
@@ -59,6 +59,19 @@ public class BankAccount {
         if (depositAmount >= 0){
             this.balance+=depositAmount;
         }
+    }
+
+    public void withdrawAmt(double withdraw){
+
+        // todo check the withdraw amount is available
+        if (withdraw > getBalance() || withdraw < 0) {
+            System.out.println("invalid withdraw amount  ");
+        }
+        else {
+            // todo update balance after withdraw and update fee
+            this.balance = getBalance() - withdraw;
+        }
+
     }
 
     /**
