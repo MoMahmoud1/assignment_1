@@ -4,7 +4,7 @@
  * @author mohamed
  */
 public class AccountTester {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvalidAccountException {
         //Instantiate a savings account object. Call it your_first_nameSavings (where “your_first_name” is your first name)
         SavingAccount mohamedSaving = new SavingAccount();
 
@@ -19,7 +19,6 @@ public class AccountTester {
 
         //Add interest to the savings account
         mohamedSaving.addInterest();
-
 
         //Transfer 1000 to the chequing account
         System.out.println("\nTransfer 1000 to Chequing account.");
@@ -42,17 +41,14 @@ public class AccountTester {
 
         //Withdraw 50 from the chequing account
         mahmoudChequing.withdraw(50);
-        System.out.printf("\nChequing account balance after withdraw 50 is  : %.2f",mahmoudChequing.getBalance());
+        System.out.printf("\nChequing account balance after withdraw 50  is : %.2f",mahmoudChequing.getBalance());
 
         //Change the interest of the savings account to 5%
         mohamedSaving.adjustInterestRate(0.05);
 
-//        //Chequing account transaction fee
-//        System.out.println("\nChequing account transaction fee  : "+mahmoudChequing.chargeFee());
-//        //Chequing account balance after fee
-//        System.out.println("Chequing account balance after fee: "+(mahmoudChequing.getBalance()-mahmoudChequing.chargeFee()));
         //Saving account balance
-        System.out.println("Saving account balance\t\t\t  : "+mohamedSaving.getBalance());
+        System.out.println("\nSaving account balance\t\t\t  : "+mohamedSaving.getBalance());
+
 
     }
 
