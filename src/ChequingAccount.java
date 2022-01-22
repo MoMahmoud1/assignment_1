@@ -1,17 +1,4 @@
 /**
- •	Should contain two constants:
- •	FREE_TRANSACTIONS (should equal 3)
- •	TRANSACTION_FEE (should equal $2 – these are for additional transactions)
- •	Should contain a class attribute transactionCnt (to keep track of transactions)
- •	Should have a constructor to create zero balance account.
- •	Also has a constructor to create an account with an initial starting balance (i.e. if a person opens an account with an initial deposit)
- •	Should override the depositAmt and withdrawAmt methods in order to increment the transaction count.
- •	Contains a chargeFees method that will charge the transaction fee (if any) to the account for any
- transactions beyond the free transactions (assume that transfers or balance checks are free)
-//remove
- */
-
-/**
  * specialized version of a bank account
  *
  * @author mohamed
@@ -53,8 +40,6 @@ public class ChequingAccount extends BankAccount {
         this.chargeFee();
     }
 
-
-
     /**
      * update transaction count
      * @param withdrawAmount from chequing account
@@ -74,9 +59,9 @@ public class ChequingAccount extends BankAccount {
      */
     @Override
     public void transfer(BankAccount bankAccount, double transferAmount) {
-        super.transfer(bankAccount ,transferAmount);
-        numTransaction++;
-        this.chargeFee();
+        this.withdraw(transferAmount);
+        bankAccount.deposit(transferAmount);
+
     }
 
     /**
@@ -85,7 +70,7 @@ public class ChequingAccount extends BankAccount {
     private void chargeFee(){
 
         if (this.numTransaction> FREE_TRANSACTIONS) {
-            this.withdraw(TRANSACTIONS_FEE);
+            this.balance -= TRANSACTIONS_FEE;
         }
         }
 

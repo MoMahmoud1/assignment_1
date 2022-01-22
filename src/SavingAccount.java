@@ -6,6 +6,7 @@
 public class SavingAccount extends BankAccount{
 
     private double interestRate = 0.03;
+
     /**
      * default constructor to set saving account balance
      */
@@ -27,14 +28,9 @@ public class SavingAccount extends BankAccount{
      *saving account balance after ass interest rate
      */
     public void addInterest(){
-       double interestAmt;
+//       double interestAmt;
         //todo add interest rate to saving account
-        interestAmt=getBalance()*interestRate/100.0;
-        this.deposit(interestAmt);
-//        +getBalance();
-        //this.balance =
-//        getBalance()=interestAmt;
-
+        this.balance += getBalance()*interestRate/100.0;
     }
 
 }

@@ -5,7 +5,7 @@
  */
 public abstract class BankAccount {
 
-    private double balance;
+    protected double balance;
 
     /**
      * default constructor to create bank account balance
@@ -66,13 +66,10 @@ public abstract class BankAccount {
      * @param transferAmount the amount to be transferred.
      */
     public  void transfer(BankAccount bankAccount, double transferAmount) {
-        this.withdraw(transferAmount);
+    if(this.balance > transferAmount && transferAmount > 0){
+        this.balance -= transferAmount;
         bankAccount.deposit(transferAmount);
-
-//        balance -= transferAmount;
-//        bankAccount.balance += transferAmount;
-
+        }
     }
-
 
 }

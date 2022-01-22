@@ -42,17 +42,14 @@ public class AccountTester {
 
         //Withdraw 50 from the chequing account
         mahmoudChequing.withdraw(50);
-        System.out.printf("\nChequing account balance after withdraw 50 is  : %.2f",mahmoudChequing.getBalance());
+        System.out.printf("\nChequing account balance after withdraw 50  is : %.2f",mahmoudChequing.getBalance());
 
         //Change the interest of the savings account to 5%
         mohamedSaving.adjustInterestRate(0.05);
 
-//        //Chequing account transaction fee
-//        System.out.println("\nChequing account transaction fee  : "+mahmoudChequing.chargeFee());
-//        //Chequing account balance after fee
-//        System.out.println("Chequing account balance after fee: "+(mahmoudChequing.getBalance()-mahmoudChequing.chargeFee()));
         //Saving account balance
-        System.out.println("Saving account balance\t\t\t  : "+mohamedSaving.getBalance());
+        System.out.println("\nSaving account balance\t\t\t  : "+mohamedSaving.getBalance());
+
 
     }
 
